@@ -1,0 +1,50 @@
+name: "partis_partition"
+description: cluster sequences into clonal families and annotate each family
+keywords:
+  - partis
+  - partition
+  - antibody
+  - receptor
+  - HMM
+tools:
+  - "partis":
+      description: |
+        Partis is an HMM-based framework for B- and T-cell receptor
+        sequence annotation, simulation, clonal family and germline
+        inference, and affinity prediction. It is built on top of
+        the ham HMM compiler and ig-sw set of Smith-Waterman annotation tools.
+      homepage: "https://github.com/psathyrella/partis"
+      documentation: "https://github.com/psathyrella/partis/tree/main/docs"
+      doi: "10.1371/journal.pcbi.1010723"
+      licence: ["GPL v3"]
+
+input:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+  - fasta:
+      type: file
+      description: DNA FASTA file
+      pattern: "*.{fasta,fa}"
+
+output:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: "versions.yml"
+  ## TODO nf-core: Delete / customise this example output
+  - yaml:
+      type: file
+      description: Partitioned sequences in yaml format
+      pattern: "*.{yaml,yml}"
+
+authors:
+  - "@ashotmarg"

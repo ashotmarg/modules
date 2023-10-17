@@ -2807,6 +2807,10 @@ paragraph/vcf2paragraph:
   - modules/nf-core/paragraph/vcf2paragraph/**
   - tests/modules/nf-core/paragraph/vcf2paragraph/**
 
+partis/partition:
+  - modules/nf-core/partis/partition/**
+  - tests/modules/nf-core/partis/partition/**
+
 pasty:
   - modules/nf-core/pasty/**
   - tests/modules/nf-core/pasty/**
