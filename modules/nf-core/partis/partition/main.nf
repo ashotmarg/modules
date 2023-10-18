@@ -37,7 +37,7 @@ process PARTIS_PARTITION {
     // TODO nf-core: Where applicable please provide/convert compressed files as input/output
     //               e.g. "*.fastq.gz" and NOT "*.fastq", "*.bam" and NOT "*.sam" etc.
     tuple val(meta), path(fasta)
-    // path(paramdir)
+    // val(paramdir)
     // val(extannotcol)
 
 
@@ -56,7 +56,6 @@ process PARTIS_PARTITION {
     def prefix = task.ext.prefix ?: "${meta.id}"
 
     // def paramdir_command = paramdir ? "--parameter-dir ${paramdir}" : ""
-    // def extannotcol_command = extannotcol ? "--extra-annotation-columns $extannotcol" : ""
 
     """
     /partis/bin/partis \\
@@ -64,7 +63,7 @@ process PARTIS_PARTITION {
         $args \\
         --infname ${fasta} \\
         --n-procs $task.cpus \\
-        --parameter-dir ${prefix}_param \\
+        --parameter-dir ${prefix}_params \\
         --outfname ${prefix}.yaml
 
     cat <<-END_VERSIONS > versions.yml
@@ -72,7 +71,7 @@ process PARTIS_PARTITION {
         partis: \$(echo \$(/partis/bin/partis version 2>&1) | grep "tag" | sed 's/.*tag: //; s/ .*//' )
     END_VERSIONS
     """
-
+// --parameter-dir ${prefix}_params \\
     stub:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
@@ -82,10 +81,10 @@ process PARTIS_PARTITION {
     //               Complex example: https://github.com/nf-core/modules/blob/818474a292b4860ae8ff88e149fbcda68814114d/modules/nf-core/bedtools/split/main.nf#L38-L54
     """
     touch ${prefix}.yaml
-    mkdir ${prefix}_param
-    touch ${prefix}_param/stubTest.yaml
-    mkdir ${prefix}_param/hmm
-    mkdir ${prefix}_param/sw
+    mkdir ${prefix}_params
+    touch ${prefix}_params/stubTest.yaml
+    mkdir ${prefix}_params/hmm
+    mkdir ${prefix}_params/sw
 
 
     cat <<-END_VERSIONS > versions.yml

@@ -1,13 +1,585 @@
-## TODO nf-core: Please run the following command to build this file:
-#                nf-core modules create-test-yml /partition
-- name: "partis partition"
+- name: partis partition test_partis_partition
   command: nextflow run ./tests/modules/nf-core/partis/partition -entry test_partis_partition -c ./tests/config/nextflow.config
   tags:
-    - "partis"
-    - "partis/partition"
+    - partis
+    - partis/partition
   files:
-    - path: "output/partis/test.bam"
-      md5sum: e667c7caad0bc4b7ac383fd023c654fc
-    - path: "output/partis/versions.yml"
-      md5sum: a01fe51bc4c6a3a6226fbf77b2c7cf3b
-    
+    - path: output/partis/test.yaml
+      contains:
+        - '{"version-info":'
+    - path: output/partis/test_params/hmm/all-mean-mute-freqs.csv
+      md5sum: d0ebec10688051df9daaa97840889e79
+    - path: output/partis/test_params/hmm/all-mean-n-muted.csv
+      md5sum: 043d4190babc1dc7e5918abeee44fba5
+    - path: output/partis/test_params/hmm/all-probs.csv
+      md5sum: 8a0934ff626aac4b912025176960a9a5
+    - path: output/partis/test_params/hmm/cluster_size.csv
+      md5sum: 4e1add11d0b80461ed4c471516fff9f7
+    - path: output/partis/test_params/hmm/d-mean-mute-freqs.csv
+      md5sum: 5a1ca58d5241190100b38058b84d8d99
+    - path: output/partis/test_params/hmm/d-mean-n-muted.csv
+      md5sum: 09ccda06939b145bfe992f08043fcc66
+    - path: output/partis/test_params/hmm/d_gene-d_3p_del-probs.csv
+      md5sum: a47679e67c942e4499d3808da25d3f66
+    - path: output/partis/test_params/hmm/d_gene-d_5p_del-probs.csv
+      md5sum: adf3990e3f63549430685ff7edc31889
+    - path: output/partis/test_params/hmm/d_gene-probs.csv
+      md5sum: 874c92392efcece726576d46e925a8c8
+    - path: output/partis/test_params/hmm/d_gene-vd_insertion-probs.csv
+      md5sum: 8edcd3a1ae4184480b6baa87e86f23a5
+    - path: output/partis/test_params/hmm/dj_insertion_content.csv
+      md5sum: f7fc69e7afb5eb0dce228332601b0bab
+    - path: output/partis/test_params/hmm/fv_insertion-probs.csv
+      md5sum: 99284956899314c45279bf2931e530aa
+    - path: output/partis/test_params/hmm/germline-sets/igh/extras.csv
+      md5sum: b54cd91dd9c28c45e7b7985b358c7561
+    - path: output/partis/test_params/hmm/germline-sets/igh/ighd.fasta
+      md5sum: de29f9376894fe8fdb4c3a256dea2cc2
+    - path: output/partis/test_params/hmm/germline-sets/igh/ighj.fasta
+      md5sum: a15d96267fe492ac247ead1fe25ea6d0
+    - path: output/partis/test_params/hmm/germline-sets/igh/ighv.fasta
+      md5sum: 039830aa28759b65659f52b237ea5e50
+    - path: output/partis/test_params/hmm/hmms/IGHD2-21_star_02.yaml
+      md5sum: 41387759b485fc9792b4fa0edcb77a93
+    - path: output/partis/test_params/hmm/hmms/IGHD2-2_star_01.yaml
+      md5sum: 357b8d7e456deaee92acc0c5eb7cd83d
+    - path: output/partis/test_params/hmm/hmms/IGHD2-8_star_01.yaml
+      md5sum: 45a4cb93d1aaefb1c9f7bb6ed640ab08
+    - path: output/partis/test_params/hmm/hmms/IGHD3-10_star_01.yaml
+      md5sum: d411d12576f943ba768a335ba50feaaf
+    - path: output/partis/test_params/hmm/hmms/IGHD3-16_star_02.yaml
+      md5sum: 72f8c83b45979b17229e6dfcfddb5fe1
+    - path: output/partis/test_params/hmm/hmms/IGHD3-22_star_01.yaml
+      md5sum: 419179621fb38ba0e475a1c6d66a9bd6
+    - path: output/partis/test_params/hmm/hmms/IGHD4-17_star_01.yaml
+      md5sum: e46b23865567419f80132a6a12d26e48
+    - path: output/partis/test_params/hmm/hmms/IGHD4-23_star_01.yaml
+      md5sum: d3d3304cd0402cc3944b002c7208293d
+    - path: output/partis/test_params/hmm/hmms/IGHD5-24_star_01.yaml
+      md5sum: ccc7739bd6ec53e56f24033d7898862d
+    - path: output/partis/test_params/hmm/hmms/IGHD6-13_star_01.yaml
+      md5sum: d44abe7b0226400ed7ae0403514cf25c
+    - path: output/partis/test_params/hmm/hmms/IGHD6-19_star_01.yaml
+      md5sum: edac9ff8c22c85ea36a64e331fa735b4
+    - path: output/partis/test_params/hmm/hmms/IGHJ3_star_02.yaml
+      md5sum: d791eaaabbd37b1bd9bfec147c75745e
+    - path: output/partis/test_params/hmm/hmms/IGHJ4_star_02.yaml
+      md5sum: 92c7d902b42984974d7e53e557c20fa0
+    - path: output/partis/test_params/hmm/hmms/IGHJ6_star_03.yaml
+      md5sum: 45b6e898847622c3193a855d38e07a62
+    - path: output/partis/test_params/hmm/hmms/IGHV3-23_star_01.yaml
+      md5sum: d2d33f889ce8652fd4c4851cebe4f25b
+    - path: output/partis/test_params/hmm/hmms/IGHV3-53_star_02.yaml
+      md5sum: e0155f3f6926edfcf3246c5411d490b8
+    - path: output/partis/test_params/hmm/hmms/IGHV3-64D_star_06.yaml
+      md5sum: a1a6bd0d92d16c6777e4962bed503f18
+    - path: output/partis/test_params/hmm/hmms/IGHV3-7_star_01.yaml
+      md5sum: 52beadc610e98f21818b1c284c0ae9dc
+    - path: output/partis/test_params/hmm/hmms/IGHV3-NL1_star_01.yaml
+      md5sum: 68086b5562d1ca7b995b3652a1e34f84
+    - path: output/partis/test_params/hmm/j-mean-mute-freqs.csv
+      md5sum: 8f09d2907e29d2e435e1f535cbf7d911
+    - path: output/partis/test_params/hmm/j-mean-n-muted.csv
+      md5sum: 51084777da1b9efae16ad0a5c31976de
+    - path: output/partis/test_params/hmm/j_gene-dj_insertion-probs.csv
+      md5sum: 2c86f44d1d5088976817e3a46629a5d6
+    - path: output/partis/test_params/hmm/j_gene-j_3p_del-probs.csv
+      md5sum: e81501afbc5baeb77a6f22678c7cb6bb
+    - path: output/partis/test_params/hmm/j_gene-j_5p_del-probs.csv
+      md5sum: 5cc41e9310d4ff2a61c805fc1d150116
+    - path: output/partis/test_params/hmm/j_gene-probs.csv
+      md5sum: 7cca5e3d291d412ae5531aab08e3050c
+    - path: output/partis/test_params/hmm/jf_insertion-probs.csv
+      md5sum: fa7821e9a3234ffa1cc4ab4d4cad7154
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD2-21_star_02.csv
+      md5sum: e3c9d1d37e8500a0693d0a858663c560
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD2-2_star_01.csv
+      md5sum: 827fae393edccf68baffde42369de1ce
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD2-8_star_01.csv
+      md5sum: 83fc28d9ef58eb3eab11d861c3f180a3
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD3-10_star_01.csv
+      md5sum: 4f48a02a6f7c9691e319ca1da720280f
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD3-16_star_02.csv
+      md5sum: ef3a1017536b0468a483d7fcba1d5a49
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD3-22_star_01.csv
+      md5sum: 4b550afbcdcc672753d9c1b88591ecb2
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD4-17_star_01.csv
+      md5sum: b74688e2995b2263c9f5977df2d420f4
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD4-23_star_01.csv
+      md5sum: 6ffec51386af453f4624a4deed48b8f4
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD5-24_star_01.csv
+      md5sum: 291cf74b34622b3f000491f8700403f8
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD6-13_star_01.csv
+      md5sum: 6e1586c956c4a2e1aef3c39cc545e873
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD6-19_star_01.csv
+      md5sum: 22e19df2c0200178519b832063bbfffe
+    - path: output/partis/test_params/hmm/mute-freqs/IGHJ3_star_02.csv
+      md5sum: e093c2d7c0361748d66d0ad3ee3db441
+    - path: output/partis/test_params/hmm/mute-freqs/IGHJ4_star_02.csv
+      md5sum: 769c3735f217b9d75e3cbef8236473ca
+    - path: output/partis/test_params/hmm/mute-freqs/IGHJ6_star_03.csv
+      md5sum: 212c721a16ff34043382f199817bb869
+    - path: output/partis/test_params/hmm/mute-freqs/IGHV3-23_star_01.csv
+      md5sum: ed3e41036c199d4b0e853e68d064bd8d
+    - path: output/partis/test_params/hmm/mute-freqs/IGHV3-53_star_02.csv
+      md5sum: dd80ba16c15dd1525362c29888ebb39d
+    - path: output/partis/test_params/hmm/mute-freqs/IGHV3-64D_star_06.csv
+      md5sum: 880111b6df1ee7e99ccfa87fae61d733
+    - path: output/partis/test_params/hmm/mute-freqs/IGHV3-7_star_01.csv
+      md5sum: 9d62a518d1141d9a0939f14e0169b975
+    - path: output/partis/test_params/hmm/mute-freqs/IGHV3-NL1_star_01.csv
+      md5sum: f684bd7e1223b65bfe5dff4062f7342b
+    - path: output/partis/test_params/hmm/seq_content.csv
+      md5sum: ebbb13050cf94cd2d0a118836602fe35
+    - path: output/partis/test_params/hmm/v-mean-mute-freqs.csv
+      md5sum: bacdb8968bde91512c93f06aa01284d3
+    - path: output/partis/test_params/hmm/v-mean-n-muted.csv
+      md5sum: d22edbaaa232841d12d6e720e742e211
+    - path: output/partis/test_params/hmm/v_gene-probs.csv
+      md5sum: 268da0ac6ce3cb721427be3a0b070510
+    - path: output/partis/test_params/hmm/v_gene-v_3p_del-probs.csv
+      md5sum: 5a4b80d1aded31e32de912d3e4fd4253
+    - path: output/partis/test_params/hmm/v_gene-v_5p_del-probs.csv
+      md5sum: dbd28d4c2a8a9a25a2a00168536b8a0b
+    - path: output/partis/test_params/hmm/vd_insertion_content.csv
+      md5sum: 6c20b854b7b01f2e60b7507e96eb7456
+    - path: output/partis/test_params/sw-cache-4318130988005113724.yaml
+      md5sum: 36f9fbabb2e505db49300c8db32e7086
+    - path: output/partis/test_params/sw/all-mean-mute-freqs.csv
+      md5sum: 9b9c0ff2e88a04df7eb28573b4a42ac2
+    - path: output/partis/test_params/sw/all-mean-n-muted.csv
+      md5sum: 53a69fb5294205b9e2cd3ee6738872cb
+    - path: output/partis/test_params/sw/all-probs.csv
+      md5sum: ae4449ef3160d141cdf3fa1af7bd2d2f
+    - path: output/partis/test_params/sw/cluster_size.csv
+      md5sum: 4e1add11d0b80461ed4c471516fff9f7
+    - path: output/partis/test_params/sw/d-mean-mute-freqs.csv
+      md5sum: 4d1c11890fb412bc7e2d7af7c1e0fdee
+    - path: output/partis/test_params/sw/d-mean-n-muted.csv
+      md5sum: e8ae109a96d44d2f614077bd26e07112
+    - path: output/partis/test_params/sw/d_gene-d_3p_del-probs.csv
+      md5sum: 8d30af29603da6f77c60822d6611b2d5
+    - path: output/partis/test_params/sw/d_gene-d_5p_del-probs.csv
+      md5sum: a86b0bd00d7db09f7c50c4be371b63ef
+    - path: output/partis/test_params/sw/d_gene-probs.csv
+      md5sum: 1c3685c40ce3a6ee9f02a5fb6bba1fcc
+    - path: output/partis/test_params/sw/d_gene-vd_insertion-probs.csv
+      md5sum: 8d284853f7d17ab1731e23a88b8b0c38
+    - path: output/partis/test_params/sw/dj_insertion_content.csv
+      md5sum: e1ea41d42cb26fdc24dbb25bb3b16d7e
+    - path: output/partis/test_params/sw/fv_insertion-probs.csv
+      md5sum: 8a298d87571f17f6473911e2c46a3319
+    - path: output/partis/test_params/sw/germline-sets/igh/extras.csv
+      md5sum: 4b253e62845d5c9d9ae657d2c08d352e
+    - path: output/partis/test_params/sw/germline-sets/igh/ighd.fasta
+      md5sum: 7b0ef17decbb8a42248edaa4aa521e4d
+    - path: output/partis/test_params/sw/germline-sets/igh/ighj.fasta
+      md5sum: 8884c0b62e516254f192058b1f7142a6
+    - path: output/partis/test_params/sw/germline-sets/igh/ighv.fasta
+      md5sum: 039830aa28759b65659f52b237ea5e50
+    - path: output/partis/test_params/sw/hmms/IGHD2-21_star_02.yaml
+      md5sum: 660eb43541c1a4c5fa4f8a1ef48a3eb7
+    - path: output/partis/test_params/sw/hmms/IGHD2-2_star_01.yaml
+      md5sum: c4d8e9a83434cd78194ef9c8a9328784
+    - path: output/partis/test_params/sw/hmms/IGHD2-8_star_01.yaml
+      md5sum: 4b6893b38f3500e2be8a690efe1450a2
+    - path: output/partis/test_params/sw/hmms/IGHD3-10_star_01.yaml
+      md5sum: 41f3edd09014dfcfd4fdb9a1d5f0bbf6
+    - path: output/partis/test_params/sw/hmms/IGHD3-10_star_03.yaml
+      md5sum: a7508cb796f89944f0d4fc553d093d69
+    - path: output/partis/test_params/sw/hmms/IGHD3-16_star_02.yaml
+      md5sum: a5ef52a13d190561e8b8c9cc92514fa1
+    - path: output/partis/test_params/sw/hmms/IGHD3-22_star_01.yaml
+      md5sum: 6a81dd8c50c2e5d6b2121af368c7eeb3
+    - path: output/partis/test_params/sw/hmms/IGHD4-17_star_01.yaml
+      md5sum: cb40c8377221fb38e0e9aa12d6830706
+    - path: output/partis/test_params/sw/hmms/IGHD4-23_star_01.yaml
+      md5sum: 94d2a0a5852b944b6790b6edbc726837
+    - path: output/partis/test_params/sw/hmms/IGHD5-24_star_01.yaml
+      md5sum: faf11531326c32cf1a8f1e58a22616f8
+    - path: output/partis/test_params/sw/hmms/IGHD6-13_star_01.yaml
+      md5sum: fcd958e0edd13b6450808b9f7ef1d812
+    - path: output/partis/test_params/sw/hmms/IGHD6-19_star_01.yaml
+      md5sum: f53719b7173db7a9ba1b9a01bcd0dd36
+    - path: output/partis/test_params/sw/hmms/IGHJ3_star_02.yaml
+      md5sum: bc9cc822cc3ac622f144e43656445d4b
+    - path: output/partis/test_params/sw/hmms/IGHJ4_star_02.yaml
+      md5sum: cd918c53a04057cfbea98035de74aa1e
+    - path: output/partis/test_params/sw/hmms/IGHJ5_star_02.yaml
+      md5sum: 6e80ab0e39dfea0937677551befe616d
+    - path: output/partis/test_params/sw/hmms/IGHJ6_star_03.yaml
+      md5sum: e15fef560c711106f4e9d7d973b16075
+    - path: output/partis/test_params/sw/hmms/IGHV3-23_star_01.yaml
+      md5sum: 2cd4b15f4a61cb1291f9600d33506c43
+    - path: output/partis/test_params/sw/hmms/IGHV3-53_star_02.yaml
+      md5sum: 49923390197040f934b632253488b407
+    - path: output/partis/test_params/sw/hmms/IGHV3-64D_star_06.yaml
+      md5sum: e47bf8e685de8f255a041caf263d5176
+    - path: output/partis/test_params/sw/hmms/IGHV3-7_star_01.yaml
+      md5sum: 3302e243e833ccf0120025d2c6f7343b
+    - path: output/partis/test_params/sw/hmms/IGHV3-NL1_star_01.yaml
+      md5sum: ec3519d6b7fcab0337df62c2aef1f15e
+    - path: output/partis/test_params/sw/j-mean-mute-freqs.csv
+      md5sum: 6277a2bcaa2471bd5fedb05fc9cdf8d8
+    - path: output/partis/test_params/sw/j-mean-n-muted.csv
+      md5sum: 48521130f4ffc4672ac8fc16084e4060
+    - path: output/partis/test_params/sw/j_gene-dj_insertion-probs.csv
+      md5sum: d1e0045bb1badaf601bb9af8b4bb7d3b
+    - path: output/partis/test_params/sw/j_gene-j_3p_del-probs.csv
+      md5sum: 980401ff9545bf970564782495603fe3
+    - path: output/partis/test_params/sw/j_gene-j_5p_del-probs.csv
+      md5sum: 809b1076b210a563017fd8e21c0d760c
+    - path: output/partis/test_params/sw/j_gene-probs.csv
+      md5sum: e50606b6d017b3b7d7441ae6ea9210f0
+    - path: output/partis/test_params/sw/jf_insertion-probs.csv
+      md5sum: fa7821e9a3234ffa1cc4ab4d4cad7154
+    - path: output/partis/test_params/sw/mute-freqs/IGHD2-21_star_02.csv
+      md5sum: e3c9d1d37e8500a0693d0a858663c560
+    - path: output/partis/test_params/sw/mute-freqs/IGHD2-2_star_01.csv
+      md5sum: 7859d6b18f1be48223cd53aab20435cf
+    - path: output/partis/test_params/sw/mute-freqs/IGHD2-8_star_01.csv
+      md5sum: 83fc28d9ef58eb3eab11d861c3f180a3
+    - path: output/partis/test_params/sw/mute-freqs/IGHD3-10_star_01.csv
+      md5sum: a32ab2246c3780ac8e6f0bca8abdf398
+    - path: output/partis/test_params/sw/mute-freqs/IGHD3-10_star_03.csv
+      md5sum: 357121e0b4b08b3576cd4ee904ff21ad
+    - path: output/partis/test_params/sw/mute-freqs/IGHD3-16_star_02.csv
+      md5sum: ef3a1017536b0468a483d7fcba1d5a49
+    - path: output/partis/test_params/sw/mute-freqs/IGHD3-22_star_01.csv
+      md5sum: 4b550afbcdcc672753d9c1b88591ecb2
+    - path: output/partis/test_params/sw/mute-freqs/IGHD4-17_star_01.csv
+      md5sum: b74688e2995b2263c9f5977df2d420f4
+    - path: output/partis/test_params/sw/mute-freqs/IGHD4-23_star_01.csv
+      md5sum: 7c28c799f8f6f3f6579a91aeea721481
+    - path: output/partis/test_params/sw/mute-freqs/IGHD5-24_star_01.csv
+      md5sum: 3bdb5a5e318e6ce56db5d342eab38b90
+    - path: output/partis/test_params/sw/mute-freqs/IGHD6-13_star_01.csv
+      md5sum: 6e1586c956c4a2e1aef3c39cc545e873
+    - path: output/partis/test_params/sw/mute-freqs/IGHD6-19_star_01.csv
+      md5sum: 695e601ce9150b9df7d777da1cbca4a5
+    - path: output/partis/test_params/sw/mute-freqs/IGHJ3_star_02.csv
+      md5sum: e093c2d7c0361748d66d0ad3ee3db441
+    - path: output/partis/test_params/sw/mute-freqs/IGHJ4_star_02.csv
+      md5sum: 8ae433b69167ce111585b9c0da9769e3
+    - path: output/partis/test_params/sw/mute-freqs/IGHJ5_star_02.csv
+      md5sum: fb1b8555397fbaed4f312b6628619d8d
+    - path: output/partis/test_params/sw/mute-freqs/IGHJ6_star_03.csv
+      md5sum: 212c721a16ff34043382f199817bb869
+    - path: output/partis/test_params/sw/mute-freqs/IGHV3-23_star_01.csv
+      md5sum: ed3e41036c199d4b0e853e68d064bd8d
+    - path: output/partis/test_params/sw/mute-freqs/IGHV3-53_star_02.csv
+      md5sum: dd80ba16c15dd1525362c29888ebb39d
+    - path: output/partis/test_params/sw/mute-freqs/IGHV3-64D_star_06.csv
+      md5sum: 880111b6df1ee7e99ccfa87fae61d733
+    - path: output/partis/test_params/sw/mute-freqs/IGHV3-7_star_01.csv
+      md5sum: 9d62a518d1141d9a0939f14e0169b975
+    - path: output/partis/test_params/sw/mute-freqs/IGHV3-NL1_star_01.csv
+      md5sum: f684bd7e1223b65bfe5dff4062f7342b
+    - path: output/partis/test_params/sw/seq_content.csv
+      md5sum: ebbb13050cf94cd2d0a118836602fe35
+    - path: output/partis/test_params/sw/v-mean-mute-freqs.csv
+      md5sum: bacdb8968bde91512c93f06aa01284d3
+    - path: output/partis/test_params/sw/v-mean-n-muted.csv
+      md5sum: d22edbaaa232841d12d6e720e742e211
+    - path: output/partis/test_params/sw/v_gene-probs.csv
+      md5sum: 268da0ac6ce3cb721427be3a0b070510
+    - path: output/partis/test_params/sw/v_gene-v_3p_del-probs.csv
+      md5sum: 5a4b80d1aded31e32de912d3e4fd4253
+    - path: output/partis/test_params/sw/v_gene-v_5p_del-probs.csv
+      md5sum: dbd28d4c2a8a9a25a2a00168536b8a0b
+    - path: output/partis/test_params/sw/vd_insertion_content.csv
+      md5sum: 82a554a0f926a233e0716bd420fc53d9
+    - path: output/partis/versions.yml
+
+- name: partis partition test_partis_partition_extargs
+  command: nextflow run ./tests/modules/nf-core/partis/partition -entry test_partis_partition_extargs -c ./tests/config/nextflow.config
+  tags:
+    - partis
+    - partis/partition
+  files:
+    - path: output/partis/test.yaml
+      contains:
+        - '{"version-info":'
+    - path: output/partis/test_params/hmm/all-mean-mute-freqs.csv
+      md5sum: d0ebec10688051df9daaa97840889e79
+    - path: output/partis/test_params/hmm/all-mean-n-muted.csv
+      md5sum: 043d4190babc1dc7e5918abeee44fba5
+    - path: output/partis/test_params/hmm/all-probs.csv
+      md5sum: 8a0934ff626aac4b912025176960a9a5
+    - path: output/partis/test_params/hmm/cluster_size.csv
+      md5sum: 4e1add11d0b80461ed4c471516fff9f7
+    - path: output/partis/test_params/hmm/d-mean-mute-freqs.csv
+      md5sum: 5a1ca58d5241190100b38058b84d8d99
+    - path: output/partis/test_params/hmm/d-mean-n-muted.csv
+      md5sum: 09ccda06939b145bfe992f08043fcc66
+    - path: output/partis/test_params/hmm/d_gene-d_3p_del-probs.csv
+      md5sum: a47679e67c942e4499d3808da25d3f66
+    - path: output/partis/test_params/hmm/d_gene-d_5p_del-probs.csv
+      md5sum: adf3990e3f63549430685ff7edc31889
+    - path: output/partis/test_params/hmm/d_gene-probs.csv
+      md5sum: 874c92392efcece726576d46e925a8c8
+    - path: output/partis/test_params/hmm/d_gene-vd_insertion-probs.csv
+      md5sum: 8edcd3a1ae4184480b6baa87e86f23a5
+    - path: output/partis/test_params/hmm/dj_insertion_content.csv
+      md5sum: f7fc69e7afb5eb0dce228332601b0bab
+    - path: output/partis/test_params/hmm/fv_insertion-probs.csv
+      md5sum: 99284956899314c45279bf2931e530aa
+    - path: output/partis/test_params/hmm/germline-sets/igh/extras.csv
+      md5sum: b54cd91dd9c28c45e7b7985b358c7561
+    - path: output/partis/test_params/hmm/germline-sets/igh/ighd.fasta
+      md5sum: de29f9376894fe8fdb4c3a256dea2cc2
+    - path: output/partis/test_params/hmm/germline-sets/igh/ighj.fasta
+      md5sum: a15d96267fe492ac247ead1fe25ea6d0
+    - path: output/partis/test_params/hmm/germline-sets/igh/ighv.fasta
+      md5sum: 039830aa28759b65659f52b237ea5e50
+    - path: output/partis/test_params/hmm/hmms/IGHD2-21_star_02.yaml
+      md5sum: 41387759b485fc9792b4fa0edcb77a93
+    - path: output/partis/test_params/hmm/hmms/IGHD2-2_star_01.yaml
+      md5sum: 357b8d7e456deaee92acc0c5eb7cd83d
+    - path: output/partis/test_params/hmm/hmms/IGHD2-8_star_01.yaml
+      md5sum: 45a4cb93d1aaefb1c9f7bb6ed640ab08
+    - path: output/partis/test_params/hmm/hmms/IGHD3-10_star_01.yaml
+      md5sum: d411d12576f943ba768a335ba50feaaf
+    - path: output/partis/test_params/hmm/hmms/IGHD3-16_star_02.yaml
+      md5sum: 72f8c83b45979b17229e6dfcfddb5fe1
+    - path: output/partis/test_params/hmm/hmms/IGHD3-22_star_01.yaml
+      md5sum: 419179621fb38ba0e475a1c6d66a9bd6
+    - path: output/partis/test_params/hmm/hmms/IGHD4-17_star_01.yaml
+      md5sum: e46b23865567419f80132a6a12d26e48
+    - path: output/partis/test_params/hmm/hmms/IGHD4-23_star_01.yaml
+      md5sum: d3d3304cd0402cc3944b002c7208293d
+    - path: output/partis/test_params/hmm/hmms/IGHD5-24_star_01.yaml
+      md5sum: ccc7739bd6ec53e56f24033d7898862d
+    - path: output/partis/test_params/hmm/hmms/IGHD6-13_star_01.yaml
+      md5sum: d44abe7b0226400ed7ae0403514cf25c
+    - path: output/partis/test_params/hmm/hmms/IGHD6-19_star_01.yaml
+      md5sum: edac9ff8c22c85ea36a64e331fa735b4
+    - path: output/partis/test_params/hmm/hmms/IGHJ3_star_02.yaml
+      md5sum: d791eaaabbd37b1bd9bfec147c75745e
+    - path: output/partis/test_params/hmm/hmms/IGHJ4_star_02.yaml
+      md5sum: 92c7d902b42984974d7e53e557c20fa0
+    - path: output/partis/test_params/hmm/hmms/IGHJ6_star_03.yaml
+      md5sum: 45b6e898847622c3193a855d38e07a62
+    - path: output/partis/test_params/hmm/hmms/IGHV3-23_star_01.yaml
+      md5sum: d2d33f889ce8652fd4c4851cebe4f25b
+    - path: output/partis/test_params/hmm/hmms/IGHV3-53_star_02.yaml
+      md5sum: e0155f3f6926edfcf3246c5411d490b8
+    - path: output/partis/test_params/hmm/hmms/IGHV3-64D_star_06.yaml
+      md5sum: a1a6bd0d92d16c6777e4962bed503f18
+    - path: output/partis/test_params/hmm/hmms/IGHV3-7_star_01.yaml
+      md5sum: 52beadc610e98f21818b1c284c0ae9dc
+    - path: output/partis/test_params/hmm/hmms/IGHV3-NL1_star_01.yaml
+      md5sum: 68086b5562d1ca7b995b3652a1e34f84
+    - path: output/partis/test_params/hmm/j-mean-mute-freqs.csv
+      md5sum: 8f09d2907e29d2e435e1f535cbf7d911
+    - path: output/partis/test_params/hmm/j-mean-n-muted.csv
+      md5sum: 51084777da1b9efae16ad0a5c31976de
+    - path: output/partis/test_params/hmm/j_gene-dj_insertion-probs.csv
+      md5sum: 2c86f44d1d5088976817e3a46629a5d6
+    - path: output/partis/test_params/hmm/j_gene-j_3p_del-probs.csv
+      md5sum: e81501afbc5baeb77a6f22678c7cb6bb
+    - path: output/partis/test_params/hmm/j_gene-j_5p_del-probs.csv
+      md5sum: 5cc41e9310d4ff2a61c805fc1d150116
+    - path: output/partis/test_params/hmm/j_gene-probs.csv
+      md5sum: 7cca5e3d291d412ae5531aab08e3050c
+    - path: output/partis/test_params/hmm/jf_insertion-probs.csv
+      md5sum: fa7821e9a3234ffa1cc4ab4d4cad7154
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD2-21_star_02.csv
+      md5sum: e3c9d1d37e8500a0693d0a858663c560
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD2-2_star_01.csv
+      md5sum: 827fae393edccf68baffde42369de1ce
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD2-8_star_01.csv
+      md5sum: 83fc28d9ef58eb3eab11d861c3f180a3
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD3-10_star_01.csv
+      md5sum: 4f48a02a6f7c9691e319ca1da720280f
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD3-16_star_02.csv
+      md5sum: ef3a1017536b0468a483d7fcba1d5a49
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD3-22_star_01.csv
+      md5sum: 4b550afbcdcc672753d9c1b88591ecb2
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD4-17_star_01.csv
+      md5sum: b74688e2995b2263c9f5977df2d420f4
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD4-23_star_01.csv
+      md5sum: 6ffec51386af453f4624a4deed48b8f4
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD5-24_star_01.csv
+      md5sum: 291cf74b34622b3f000491f8700403f8
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD6-13_star_01.csv
+      md5sum: 6e1586c956c4a2e1aef3c39cc545e873
+    - path: output/partis/test_params/hmm/mute-freqs/IGHD6-19_star_01.csv
+      md5sum: 22e19df2c0200178519b832063bbfffe
+    - path: output/partis/test_params/hmm/mute-freqs/IGHJ3_star_02.csv
+      md5sum: e093c2d7c0361748d66d0ad3ee3db441
+    - path: output/partis/test_params/hmm/mute-freqs/IGHJ4_star_02.csv
+      md5sum: 769c3735f217b9d75e3cbef8236473ca
+    - path: output/partis/test_params/hmm/mute-freqs/IGHJ6_star_03.csv
+      md5sum: 212c721a16ff34043382f199817bb869
+    - path: output/partis/test_params/hmm/mute-freqs/IGHV3-23_star_01.csv
+      md5sum: ed3e41036c199d4b0e853e68d064bd8d
+    - path: output/partis/test_params/hmm/mute-freqs/IGHV3-53_star_02.csv
+      md5sum: dd80ba16c15dd1525362c29888ebb39d
+    - path: output/partis/test_params/hmm/mute-freqs/IGHV3-64D_star_06.csv
+      md5sum: 880111b6df1ee7e99ccfa87fae61d733
+    - path: output/partis/test_params/hmm/mute-freqs/IGHV3-7_star_01.csv
+      md5sum: 9d62a518d1141d9a0939f14e0169b975
+    - path: output/partis/test_params/hmm/mute-freqs/IGHV3-NL1_star_01.csv
+      md5sum: f684bd7e1223b65bfe5dff4062f7342b
+    - path: output/partis/test_params/hmm/seq_content.csv
+      md5sum: ebbb13050cf94cd2d0a118836602fe35
+    - path: output/partis/test_params/hmm/v-mean-mute-freqs.csv
+      md5sum: bacdb8968bde91512c93f06aa01284d3
+    - path: output/partis/test_params/hmm/v-mean-n-muted.csv
+      md5sum: d22edbaaa232841d12d6e720e742e211
+    - path: output/partis/test_params/hmm/v_gene-probs.csv
+      md5sum: 268da0ac6ce3cb721427be3a0b070510
+    - path: output/partis/test_params/hmm/v_gene-v_3p_del-probs.csv
+      md5sum: 5a4b80d1aded31e32de912d3e4fd4253
+    - path: output/partis/test_params/hmm/v_gene-v_5p_del-probs.csv
+      md5sum: dbd28d4c2a8a9a25a2a00168536b8a0b
+    - path: output/partis/test_params/hmm/vd_insertion_content.csv
+      md5sum: 6c20b854b7b01f2e60b7507e96eb7456
+    - path: output/partis/test_params/sw-cache-4318130988005113724.yaml
+      md5sum: 36f9fbabb2e505db49300c8db32e7086
+    - path: output/partis/test_params/sw/all-mean-mute-freqs.csv
+      md5sum: 9b9c0ff2e88a04df7eb28573b4a42ac2
+    - path: output/partis/test_params/sw/all-mean-n-muted.csv
+      md5sum: 53a69fb5294205b9e2cd3ee6738872cb
+    - path: output/partis/test_params/sw/all-probs.csv
+      md5sum: ae4449ef3160d141cdf3fa1af7bd2d2f
+    - path: output/partis/test_params/sw/cluster_size.csv
+      md5sum: 4e1add11d0b80461ed4c471516fff9f7
+    - path: output/partis/test_params/sw/d-mean-mute-freqs.csv
+      md5sum: 4d1c11890fb412bc7e2d7af7c1e0fdee
+    - path: output/partis/test_params/sw/d-mean-n-muted.csv
+      md5sum: e8ae109a96d44d2f614077bd26e07112
+    - path: output/partis/test_params/sw/d_gene-d_3p_del-probs.csv
+      md5sum: 8d30af29603da6f77c60822d6611b2d5
+    - path: output/partis/test_params/sw/d_gene-d_5p_del-probs.csv
+      md5sum: a86b0bd00d7db09f7c50c4be371b63ef
+    - path: output/partis/test_params/sw/d_gene-probs.csv
+      md5sum: 1c3685c40ce3a6ee9f02a5fb6bba1fcc
+    - path: output/partis/test_params/sw/d_gene-vd_insertion-probs.csv
+      md5sum: 8d284853f7d17ab1731e23a88b8b0c38
+    - path: output/partis/test_params/sw/dj_insertion_content.csv
+      md5sum: e1ea41d42cb26fdc24dbb25bb3b16d7e
+    - path: output/partis/test_params/sw/fv_insertion-probs.csv
+      md5sum: 8a298d87571f17f6473911e2c46a3319
+    - path: output/partis/test_params/sw/germline-sets/igh/extras.csv
+      md5sum: 4b253e62845d5c9d9ae657d2c08d352e
+    - path: output/partis/test_params/sw/germline-sets/igh/ighd.fasta
+      md5sum: 7b0ef17decbb8a42248edaa4aa521e4d
+    - path: output/partis/test_params/sw/germline-sets/igh/ighj.fasta
+      md5sum: 8884c0b62e516254f192058b1f7142a6
+    - path: output/partis/test_params/sw/germline-sets/igh/ighv.fasta
+      md5sum: 039830aa28759b65659f52b237ea5e50
+    - path: output/partis/test_params/sw/hmms/IGHD2-21_star_02.yaml
+      md5sum: 660eb43541c1a4c5fa4f8a1ef48a3eb7
+    - path: output/partis/test_params/sw/hmms/IGHD2-2_star_01.yaml
+      md5sum: c4d8e9a83434cd78194ef9c8a9328784
+    - path: output/partis/test_params/sw/hmms/IGHD2-8_star_01.yaml
+      md5sum: 4b6893b38f3500e2be8a690efe1450a2
+    - path: output/partis/test_params/sw/hmms/IGHD3-10_star_01.yaml
+      md5sum: 41f3edd09014dfcfd4fdb9a1d5f0bbf6
+    - path: output/partis/test_params/sw/hmms/IGHD3-10_star_03.yaml
+      md5sum: a7508cb796f89944f0d4fc553d093d69
+    - path: output/partis/test_params/sw/hmms/IGHD3-16_star_02.yaml
+      md5sum: a5ef52a13d190561e8b8c9cc92514fa1
+    - path: output/partis/test_params/sw/hmms/IGHD3-22_star_01.yaml
+      md5sum: 6a81dd8c50c2e5d6b2121af368c7eeb3
+    - path: output/partis/test_params/sw/hmms/IGHD4-17_star_01.yaml
+      md5sum: cb40c8377221fb38e0e9aa12d6830706
+    - path: output/partis/test_params/sw/hmms/IGHD4-23_star_01.yaml
+      md5sum: 94d2a0a5852b944b6790b6edbc726837
+    - path: output/partis/test_params/sw/hmms/IGHD5-24_star_01.yaml
+      md5sum: faf11531326c32cf1a8f1e58a22616f8
+    - path: output/partis/test_params/sw/hmms/IGHD6-13_star_01.yaml
+      md5sum: fcd958e0edd13b6450808b9f7ef1d812
+    - path: output/partis/test_params/sw/hmms/IGHD6-19_star_01.yaml
+      md5sum: f53719b7173db7a9ba1b9a01bcd0dd36
+    - path: output/partis/test_params/sw/hmms/IGHJ3_star_02.yaml
+      md5sum: bc9cc822cc3ac622f144e43656445d4b
+    - path: output/partis/test_params/sw/hmms/IGHJ4_star_02.yaml
+      md5sum: cd918c53a04057cfbea98035de74aa1e
+    - path: output/partis/test_params/sw/hmms/IGHJ5_star_02.yaml
+      md5sum: 6e80ab0e39dfea0937677551befe616d
+    - path: output/partis/test_params/sw/hmms/IGHJ6_star_03.yaml
+      md5sum: e15fef560c711106f4e9d7d973b16075
+    - path: output/partis/test_params/sw/hmms/IGHV3-23_star_01.yaml
+      md5sum: 2cd4b15f4a61cb1291f9600d33506c43
+    - path: output/partis/test_params/sw/hmms/IGHV3-53_star_02.yaml
+      md5sum: 49923390197040f934b632253488b407
+    - path: output/partis/test_params/sw/hmms/IGHV3-64D_star_06.yaml
+      md5sum: e47bf8e685de8f255a041caf263d5176
+    - path: output/partis/test_params/sw/hmms/IGHV3-7_star_01.yaml
+      md5sum: 3302e243e833ccf0120025d2c6f7343b
+    - path: output/partis/test_params/sw/hmms/IGHV3-NL1_star_01.yaml
+      md5sum: ec3519d6b7fcab0337df62c2aef1f15e
+    - path: output/partis/test_params/sw/j-mean-mute-freqs.csv
+      md5sum: 6277a2bcaa2471bd5fedb05fc9cdf8d8
+    - path: output/partis/test_params/sw/j-mean-n-muted.csv
+      md5sum: 48521130f4ffc4672ac8fc16084e4060
+    - path: output/partis/test_params/sw/j_gene-dj_insertion-probs.csv
+      md5sum: d1e0045bb1badaf601bb9af8b4bb7d3b
+    - path: output/partis/test_params/sw/j_gene-j_3p_del-probs.csv
+      md5sum: 980401ff9545bf970564782495603fe3
+    - path: output/partis/test_params/sw/j_gene-j_5p_del-probs.csv
+      md5sum: 809b1076b210a563017fd8e21c0d760c
+    - path: output/partis/test_params/sw/j_gene-probs.csv
+      md5sum: e50606b6d017b3b7d7441ae6ea9210f0
+    - path: output/partis/test_params/sw/jf_insertion-probs.csv
+      md5sum: fa7821e9a3234ffa1cc4ab4d4cad7154
+    - path: output/partis/test_params/sw/mute-freqs/IGHD2-21_star_02.csv
+      md5sum: e3c9d1d37e8500a0693d0a858663c560
+    - path: output/partis/test_params/sw/mute-freqs/IGHD2-2_star_01.csv
+      md5sum: 7859d6b18f1be48223cd53aab20435cf
+    - path: output/partis/test_params/sw/mute-freqs/IGHD2-8_star_01.csv
+      md5sum: 83fc28d9ef58eb3eab11d861c3f180a3
+    - path: output/partis/test_params/sw/mute-freqs/IGHD3-10_star_01.csv
+      md5sum: a32ab2246c3780ac8e6f0bca8abdf398
+    - path: output/partis/test_params/sw/mute-freqs/IGHD3-10_star_03.csv
+      md5sum: 357121e0b4b08b3576cd4ee904ff21ad
+    - path: output/partis/test_params/sw/mute-freqs/IGHD3-16_star_02.csv
+      md5sum: ef3a1017536b0468a483d7fcba1d5a49
+    - path: output/partis/test_params/sw/mute-freqs/IGHD3-22_star_01.csv
+      md5sum: 4b550afbcdcc672753d9c1b88591ecb2
+    - path: output/partis/test_params/sw/mute-freqs/IGHD4-17_star_01.csv
+      md5sum: b74688e2995b2263c9f5977df2d420f4
+    - path: output/partis/test_params/sw/mute-freqs/IGHD4-23_star_01.csv
+      md5sum: 7c28c799f8f6f3f6579a91aeea721481
+    - path: output/partis/test_params/sw/mute-freqs/IGHD5-24_star_01.csv
+      md5sum: 3bdb5a5e318e6ce56db5d342eab38b90
+    - path: output/partis/test_params/sw/mute-freqs/IGHD6-13_star_01.csv
+      md5sum: 6e1586c956c4a2e1aef3c39cc545e873
+    - path: output/partis/test_params/sw/mute-freqs/IGHD6-19_star_01.csv
+      md5sum: 695e601ce9150b9df7d777da1cbca4a5
+    - path: output/partis/test_params/sw/mute-freqs/IGHJ3_star_02.csv
+      md5sum: e093c2d7c0361748d66d0ad3ee3db441
+    - path: output/partis/test_params/sw/mute-freqs/IGHJ4_star_02.csv
+      md5sum: 8ae433b69167ce111585b9c0da9769e3
+    - path: output/partis/test_params/sw/mute-freqs/IGHJ5_star_02.csv
+      md5sum: fb1b8555397fbaed4f312b6628619d8d
+    - path: output/partis/test_params/sw/mute-freqs/IGHJ6_star_03.csv
+      md5sum: 212c721a16ff34043382f199817bb869
+    - path: output/partis/test_params/sw/mute-freqs/IGHV3-23_star_01.csv
+      md5sum: ed3e41036c199d4b0e853e68d064bd8d
+    - path: output/partis/test_params/sw/mute-freqs/IGHV3-53_star_02.csv
+      md5sum: dd80ba16c15dd1525362c29888ebb39d
+    - path: output/partis/test_params/sw/mute-freqs/IGHV3-64D_star_06.csv
+      md5sum: 880111b6df1ee7e99ccfa87fae61d733
+    - path: output/partis/test_params/sw/mute-freqs/IGHV3-7_star_01.csv
+      md5sum: 9d62a518d1141d9a0939f14e0169b975
+    - path: output/partis/test_params/sw/mute-freqs/IGHV3-NL1_star_01.csv
+      md5sum: f684bd7e1223b65bfe5dff4062f7342b
+    - path: output/partis/test_params/sw/seq_content.csv
+      md5sum: ebbb13050cf94cd2d0a118836602fe35
+    - path: output/partis/test_params/sw/v-mean-mute-freqs.csv
+      md5sum: bacdb8968bde91512c93f06aa01284d3
+    - path: output/partis/test_params/sw/v-mean-n-muted.csv
+      md5sum: d22edbaaa232841d12d6e720e742e211
+    - path: output/partis/test_params/sw/v_gene-probs.csv
+      md5sum: 268da0ac6ce3cb721427be3a0b070510
+    - path: output/partis/test_params/sw/v_gene-v_3p_del-probs.csv
+      md5sum: 5a4b80d1aded31e32de912d3e4fd4253
+    - path: output/partis/test_params/sw/v_gene-v_5p_del-probs.csv
+      md5sum: dbd28d4c2a8a9a25a2a00168536b8a0b
+    - path: output/partis/test_params/sw/vd_insertion_content.csv
+      md5sum: 82a554a0f926a233e0716bd420fc53d9
+    - path: output/partis/versions.yml
