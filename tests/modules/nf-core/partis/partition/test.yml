@@ -1,12 +1,12 @@
 - name: partis partition test_partis_partition
   command: nextflow run ./tests/modules/nf-core/partis/partition -entry test_partis_partition -c ./tests/config/nextflow.config
   tags:
-    - partis
     - partis/partition
+    - partis
   files:
     - path: output/partis/test.yaml
       contains:
-        - '{"version-info":'
+        - '{"version-info": {"partis-git":'
     - path: output/partis/test_params/hmm/all-mean-mute-freqs.csv
       md5sum: d0ebec10688051df9daaa97840889e79
     - path: output/partis/test_params/hmm/all-mean-n-muted.csv
@@ -294,12 +294,12 @@
 - name: partis partition test_partis_partition_extargs
   command: nextflow run ./tests/modules/nf-core/partis/partition -entry test_partis_partition_extargs -c ./tests/config/nextflow.config
   tags:
-    - partis
     - partis/partition
+    - partis
   files:
     - path: output/partis/test.yaml
       contains:
-        - '{"version-info":'
+        - '{"version-info": {"partis-git":'
     - path: output/partis/test_params/hmm/all-mean-mute-freqs.csv
       md5sum: d0ebec10688051df9daaa97840889e79
     - path: output/partis/test_params/hmm/all-mean-n-muted.csv

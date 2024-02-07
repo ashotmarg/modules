@@ -12,7 +12,6 @@ workflow test_partis_partition {
         // file(params.test_data['sarscov2']['illumina']['test_paired_end_bam'], checkIfExists: true)
         file("/Users/aoqn/projects/deleteMe/exampleSmall.fa", checkIfExists: true)
     ]
-    // parameter_directory = "something/testing_param"
 
     PARTIS_PARTITION ( input )
 }
@@ -24,8 +23,6 @@ workflow test_partis_partition_extargs {
         // file(params.test_data['sarscov2']['illumina']['test_paired_end_bam'], checkIfExists: true)
         file("/Users/aoqn/projects/deleteMe/exampleSmall.fa", checkIfExists: true)
     ]
-    // parameter_directory = "something/testing_param"
 
-    // ${meta.id}
     PARTIS_PARTITION_EXTARGS ( input )
 }
