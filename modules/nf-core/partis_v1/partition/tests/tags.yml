@@ -1,0 +1,2 @@
+partis/partition:
+  - "modules/nf-core/partis/partition/**"
